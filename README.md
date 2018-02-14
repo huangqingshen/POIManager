@@ -9,8 +9,10 @@ setDateTo(String dateTo) [null]
 setSavePath(String savePath) [null]
 setHeader(List header)
 setHeader(String[] header)
-setWidth(Integer width)【在有设置 header的时候，会自动取其长度，不需要header的需要设置 width】
-setCacheRowsInMemory(Integer rows) [10240] 【设置内存缓存的数据行数。内存小的服务器请调小。如果不理解，请不要设置。】
+setWidth(Integer width)
+【在有设置 header的时候，会自动取其长度，不需要header的需要设置 width】
+setCacheRowsInMemory(Integer rows) [10240] 
+【设置内存缓存的数据行数。内存小的服务器请调小。如果不理解，请不要设置。】
 # 提供的get方法：
 以上的set方法均有对应的无参get方法。
 add方法：
