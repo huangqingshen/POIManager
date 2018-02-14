@@ -12,20 +12,29 @@ setHeader(String[] header)
 setWidth(Integer width)
 【在有设置 header的时候，会自动取其长度，不需要header的需要设置 width】
 setCacheRowsInMemory(Integer rows) [10240] 
+
 【设置内存缓存的数据行数。内存小的服务器请调小。如果不理解，请不要设置。】
 # 提供的get方法：
 以上的set方法均有对应的无参get方法。
 add方法：
-addRow(ExcelRow row) 添加行对象【protected】【保护的方法。createXlsx过程会自动添加】
-addRowFromCache(ExcelRow row) 【将缓存对象加入到excel。会将上一个createRow得到的对象立即添加到excel】
+addRow(ExcelRow row) 
+添加行对象【protected】【保护的方法。createXlsx过程会自动添加】
+addRowFromCache(ExcelRow row) 
+【将缓存对象加入到excel。会将上一个createRow得到的对象立即添加到excel】
+
 # 提供的create方法：
-createRow() 创建行对象【创建row对象，创建前会将上一个行对象添加到excel】
-createRowInCache()创建行对象【不直接添加到excel中，需要调用addRowFromCache(ExcelRow row) 对会被加入到excel】
-CreateXlsx() 创建最终的excel，无返回.
-CreateXlsxByFile() 创建最终的excel在临时目录，并返回 File.
+createRow() 
+创建行对象【创建row对象，创建前会将上一个行对象添加到excel】
+createRowInCache()
+创建行对象【不直接添加到excel中，需要调用addRowFromCache(ExcelRow row) 对会被加入到excel】
+CreateXlsx() 
+创建最终的excel，无返回.
+CreateXlsxByFile() 
+创建最终的excel在临时目录，并返回 File.
 通过 createRow方法创建了行对象row后，可以对行对象进行操作。
 提供的单元格操作方法：
-addCell(Object cellContent, boolean border, short align, int col, int row) cellContent：cell 文本内容。必需，将自动设置 cell 宽度。超过一定长度后自动定义为富文本框 
+addCell(Object cellContent, boolean border, short align, int col, int row) cellContent：cell 
+文本内容。必需，将自动设置 cell 宽度。超过一定长度后自动定义为富文本框 
 border：cell的边框，默认为true。边框大小不提供自定义 
 align：对齐方式，需要从 ExcelUtil里面取static值。仅提货左，中两种常用取值 
 col：合并行，需要与row结合使用。 
@@ -33,7 +42,8 @@ row：合并列，需要与col结合使用。
 col和row需成对出现或不设置。默认为1。当有行合并时，将不自动设置行宽。 \
 
 # cell 类型支持：
-java.lang.Integer. java.lang.String【默认类型】 java.util.Date【年月日时分秒】 java.sql.Date【年月日】 java.lang.Double【默认保留两位小数】 按上述类型传入的值，将会自动设置到cell中，其他类型的值通不过上述类型判断，将用默认类型处理。
+java.lang.Integer. java.lang.String
+【默认类型】 java.util.Date【年月日时分秒】 java.sql.Date【年月日】 java.lang.Double【默认保留两位小数】 按上述类型传入的值，将会自动设置到cell中，其他类型的值通不过上述类型判断，将用默认类型处理。
 
 # createXlsx的写入
 了解了excel的写入操作，将更便于此工具的使用。
