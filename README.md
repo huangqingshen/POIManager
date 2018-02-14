@@ -1,6 +1,6 @@
-# 通过 new Excel() 创建excel对象
+# Excel工具类使用方法
 通过set 方法设置文档基本信息。
-提供以下set方法：
+# 提供以下set方法：
 setTitle(String title)
 setCreate_by(String create_by)
 setCreate_by(Object create_by)【会将object转换为String】
@@ -11,12 +11,12 @@ setHeader(List header)
 setHeader(String[] header)
 setWidth(Integer width)【在有设置 header的时候，会自动取其长度，不需要header的需要设置 width】
 setCacheRowsInMemory(Integer rows) [10240] 【设置内存缓存的数据行数。内存小的服务器请调小。如果不理解，请不要设置。】
-提供的get方法：
+# 提供的get方法：
 以上的set方法均有对应的无参get方法。
 add方法：
 addRow(ExcelRow row) 添加行对象【protected】【保护的方法。createXlsx过程会自动添加】
 addRowFromCache(ExcelRow row) 【将缓存对象加入到excel。会将上一个createRow得到的对象立即添加到excel】
-提供的create方法：
+# 提供的create方法：
 createRow() 创建行对象【创建row对象，创建前会将上一个行对象添加到excel】
 createRowInCache()创建行对象【不直接添加到excel中，需要调用addRowFromCache(ExcelRow row) 对会被加入到excel】
 CreateXlsx() 创建最终的excel，无返回.
@@ -30,11 +30,12 @@ col：合并行，需要与row结合使用。
 row：合并列，需要与col结合使用。 
 col和row需成对出现或不设置。默认为1。当有行合并时，将不自动设置行宽。 \
 
-cell 类型支持：
+# cell 类型支持：
 java.lang.Integer. java.lang.String【默认类型】 java.util.Date【年月日时分秒】 java.sql.Date【年月日】 java.lang.Double【默认保留两位小数】 按上述类型传入的值，将会自动设置到cell中，其他类型的值通不过上述类型判断，将用默认类型处理。
 
-createXlsx的写入
+# createXlsx的写入
 了解了excel的写入操作，将更便于此工具的使用。
+
 
 对 excel对象得到的参数进行验证，如果有错误，将返回错误结果。
 使用 header 的长度，或者 width 的值，进行标题的合并和设置。
@@ -49,12 +50,13 @@ createXlsx的写入
 示例代码：
 com.wkclz.util.excel.ExcelTest.main();
 
-Excel读取类的使用方法：
+# Excel读取类的使用方法：
 setStartRow(int rowNum)
 setStartCol(int colNum)
 setTypes(String[] types)
-最后骑过 analysisXlsx() 方法，得到所有行数据。
+最后使用 analysisXlsx() 方法，得到所有行数据。
+
 示例代码：
 com.wkclz.util.excel.ExcelRdTest.main();
 
-最后，此工具类共享出来给大家使用，希望大家能够帮助一起完善，通过开源的方式互助。发现有什么bug，或者有什么想法欢迎 PR.
+
